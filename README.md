@@ -11,5 +11,5 @@ Compile
 
 Run:
 
-`node build/app.js`
+`node build/app.js "email@email.com" "password"`
 
