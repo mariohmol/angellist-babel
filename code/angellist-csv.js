@@ -23,7 +23,7 @@ function requestLogin (formData) {
       return request
         .post('https://angel.co/users/login', { form: formData })
         .on('error', err => reject(err))
-        .on('response', response => resolve(response))
+        .on('response', response => { resolve(response) })
     } catch(err) {
       return reject(err)
     }

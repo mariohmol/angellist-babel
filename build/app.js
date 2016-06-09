@@ -39,20 +39,23 @@ var filterData = {
 };
 
 function requestLogin(formData) {
+  console.log(formData);
   return new Promise(function (resolve, reject) {
     try {
       return _request2.default.post('https://angel.co/users/login', { form: formData }).on('error', function (err) {
         return reject(err);
       }).on('response', function (response) {
-        return resolve(response);
+        console.log(response);resolve(response);
       });
     } catch (err) {
+      console.log(err);
       return reject(err);
     }
   });
 }
 
 function requestCsv(filterOptions) {
+  console.log(filterOptions);
   return new Promise(function (resolve, reject) {
     try {
       var _ret = function () {
@@ -66,6 +69,7 @@ function requestCsv(filterOptions) {
             data[key.replace(/\s/g, '_').toLowerCase()] = data[key];
             delete data[key];
           }
+          console.log(data);
           output.push(data);
           return data;
         }).on('error', function (err) {
